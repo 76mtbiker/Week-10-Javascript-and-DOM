@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Table with Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+
+    <style>
+      /* Custom CSS */
+      body {
+        background-color:lightblue;
+      }
+      h1 {
+        color: blueviolet;
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 50px;
+      }
+      form {
+        margin-bottom: 10px;
+      }
+      label {
+        font-weight: bolder;
+      }
+      table {
+        background-color: yellow;
+        border: 10px solid purple;
+        border-collapse: collapse;
+        margin-bottom: 50px;
+      }
+      th, td {
+        padding: 20px;
+        text-align: left;
+        border: 1px solid purple;
+      }
+      th {
+        background-color: green;
+        font-weight: bold;
+      }
+      tbody tr:hover {
+        background-color: hotpink;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="tablewithform.js"></script>
+    <div class="container">
+      <h1>Sign up Sheet</h1>
+     
+      
+      <!-- Table -->
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Challenge</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody id="myTable">
+          <tr>
+            <td>John Doe</td>
+            <td>30</td>
+            <td>john.doe@example.com</td>
+          </tr>
+          <tr>
+            <td>Jane Doe</td>
+            <td>25</td>
+            <td>jane.doe@example.com</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- Form -->
+      <form>
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" class="form-control" id="name">
+        </div>
+        <div class="form-group">
+          <label for="challenge">Challenge:</label>
+          <input type="number" class="form-control" id="challenge">
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" id="email">
+        </div>
+        <button type="button" class="btn btn-primary" onclick="addRow()">Submit</button>
+      </form>
+      <img src="https://d2vlfoojfnunjn.cloudfront.net/tours/bali/bali-max.jpg" class="img-fluid rounded" style="max-width: 50%;">
+      
+    </div>
+    <!-- Bootstrap JavaScript -->
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script>
+      function addRow() 
+        // Get input values
+        var name = document.getElementById("name").value;
+        var age = document.getElementById("challenge").value;
+        var email = document.getElementById("email").value;
+        // Create new row
+        var table = document.getElementById("myTable");
+        var row = table.insertRow(-1);
+        var nameCell = row.insertCell(0);
+        var challengeCell = row.insertCell(1);
+        var emailCell = row.insertCell(2);
+        nameCell.innerHTML = name;
+        ageCell.innerHTML = challenge;
+        emailCell.innerHTML = email;
+        // Clear form input
